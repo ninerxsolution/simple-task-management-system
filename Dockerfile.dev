@@ -1,0 +1,18 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package.json package-lock.json* ./
+
+# Install dependencies
+# ใช้ npm install แทน npm ci เพื่อหลีกเลี่ยงปัญหา compatibility บางอย่างใน container dev
+RUN npm install
+
+# Copy application files
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "run", "dev"]
+
