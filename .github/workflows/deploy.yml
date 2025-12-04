@@ -46,8 +46,8 @@ jobs:
           port: ${{ secrets.EC2_PORT }}
           script: |
             cd /var/www/simple-task
-            git config --global --add safe.directory /var/www/simple-task
-            git pull
+            # รีสตาร์ท stack ใหม่จาก image ล่าสุด
+            docker-compose down
             docker-compose pull
             docker-compose up -d
 
