@@ -22,9 +22,8 @@ services:
       - app-network
 
   nextjs:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    # ใช้ image จาก Docker Hub (ปรับชื่อ image ให้ตรงกับของคุณ)
+    image: ninerxsolution/simple-task-management-system:latest
     container_name: task-management-nextjs
     restart: unless-stopped
     ports:
